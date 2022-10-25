@@ -1,0 +1,51 @@
+ORIGINAL 
+	Query:
+		node has skills="Business"
+		at least 2 coviewed has skills="Business"
+		return gender distribution of original nodes
+		
+	Query:
+		node has skills="Business"
+		at least 2 coviewed has skills="Business" and title="Manager"
+		return gender distribution of original nodes
+		
+	Query:
+		node has skills="Business"
+		at least 2 coviewed has skills="Business" and title="Senior"
+		return gender distribution of original nodes
+
+NEW, LESS SKEWED
+	Query:
+		node has skills="Business"
+		at least 2 coviewed has skills="Business" and skills="Media"
+		return gender distribution of original nodes
+		
+	Query:
+		node has skills="Business"
+		at least 2 coviewed has skills="Business" and skills="Market"
+		return gender distribution of original nodes
+		
+	Query:
+		node has skills="Business"
+		at least 2 coviewed has skills="Business" and skills="Writing"
+		return gender distribution of original nodes
+		
+	Query:
+		node has skills="Business"
+		at least 2 coviewed has skills="Business" and skills="Media" and skills="Writing"
+		return gender distribution of original nodes
+		
+	Query:
+		node has skills="Business"
+		at least 2 coviewed has skills="Business" and skills="Media"
+		return gender distribution of original nodes
+		
+	Query:
+		node has skills="Business"
+		at least 2 coviewed has skills="Business" and skills="Media" and title="Manager"
+		return gender distribution of original nodes
+		
+	Query:
+		node has skills="Business"
+		at least 2 coviewed has skills="Business" and skills="Media" and title="Senior"
+		return gender distribution of original nodes
