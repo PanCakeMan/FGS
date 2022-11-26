@@ -1,6 +1,9 @@
 # Repository of  Fair Group Summarization with Graph Patterns
 
+Full Version: https://github.com/PanCakeMan/FGS/blob/main/full.pdf
+
 Dataset  
+
 
 Covid-19: https://github.com/imdevskp/covid-19-india-data/  
 
