@@ -1,4 +1,5 @@
-# FGS
+# Repository of  Fair Group Summarization with Graph Patterns
+
 Dataset  
 
 Covid-19: https://github.com/imdevskp/covid-19-india-data/  
