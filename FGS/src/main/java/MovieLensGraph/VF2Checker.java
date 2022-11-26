@@ -1,8 +1,10 @@
 package MovieLensGraph;
+
 import java.io.*;
 import java.util.*;
+
 import Infra.*;
-import Linkedin.LinkedinGraph;
+
 import org.apache.jena.atlas.data.AbstractDataBag;
 import org.apache.jena.base.Sys;
 import org.apache.jena.tdb.store.Hash;
@@ -512,7 +514,7 @@ public class VF2Checker {
     }
 
 
-    public void runMaxSumGenStreaming(ArrayList<String> group, ArrayList<Rangepair> cc, int r, int m)
+    public void runFGSStream(ArrayList<String> group, ArrayList<Rangepair> cc, int r, int m, int k)
             throws IOException, ClassNotFoundException {
 
 
@@ -525,7 +527,7 @@ public class VF2Checker {
                             HashSet<String> groups = new HashSet<>(group);
                             if (groups.contains(node.attributes.get("Category").toArray()[0])) {
                                 candidates.add(node);
-                                if (candidates.size() > 400) {
+                                if (candidates.size() > 5000) {
                                     break;
                                 }
                             }
@@ -542,7 +544,6 @@ public class VF2Checker {
         HashSet<DataNode> S = new HashSet<>();
         HashSet<Integer> resultPatterns = new HashSet<>();
 
-        int k = 20;
 
         for (DataNode node : candidates) {
             System.out.println(node.getNodeName());
@@ -756,7 +757,7 @@ public class VF2Checker {
 
     }
 
-    public void runMaxSumGen(ArrayList<String> group, ArrayList<Rangepair> cc, int r, int m)
+    public void runFGS(ArrayList<String> group, ArrayList<Rangepair> cc, int r, int m, int k)
             throws IOException, ClassNotFoundException {
 
         long s = System.nanoTime();
@@ -770,9 +771,7 @@ public class VF2Checker {
                             HashSet<String> groups = new HashSet<>(group);
                             if (groups.contains(node.attributes.get("Category").toArray()[0])) {
                                 candidates.add(node);
-                                if (candidates.size() > 800) {
-                                    break;
-                                }
+
                             }
                         }
                     }
@@ -937,7 +936,7 @@ public class VF2Checker {
         for (int i : totalSetCover.keySet()) {
             totalSummaryMap.put(i, getSummary(miningCandidates.get(i), allGraphList));
         }
-        int k = 20;
+
         HashSet<Integer> results = FairGenPattern(totalSummaryMap, totalSetCover, group, cc, k, m);
 
         System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -947,15 +946,7 @@ public class VF2Checker {
         HashSet<RelationshipEdge> totalSummary = new HashSet<>();
         for (int i : results) {
             System.out.println(i + "selected pattern");
-//            for (DataNode pNode : miningCandidates.get(i).vertexSet()) {
-//                System.out.println(pNode.getNodeName());
-//                System.out.println(pNode.types);
-//            }
-//            for (RelationshipEdge pEdge : miningCandidates.get(i).edgeSet()) {
-//                System.out.println(miningCandidates.get(i).getEdgeSource(pEdge).getNodeName());
-//                System.out.println(miningCandidates.get(i).getEdgeTarget(pEdge).getNodeName());
-//                System.out.println(pEdge.getLabel());
-//            }
+
             totalSummary.addAll(totalSummaryMap.get(i));
             System.out.println(totalSetCover.get(i));
         }
@@ -2121,28 +2112,29 @@ public class VF2Checker {
     }
 
     public static void main(String args[]) throws IOException, ClassNotFoundException {
-        MovieDataGraph graph = new MovieDataGraph("C:\\Users\\Nick\\Downloads\\fairness\\newType.ttl",
-                "C:\\Users\\Nick\\Downloads\\Film_dataset\\Film_dataset\\processed_dataset\\mix.dbpedia.graph");
-        graph.enhencedIMDB("C:\\Users\\Nick\\Downloads\\Film_dataset\\Film_dataset\\processed_dataset\\film.imdb.json");
+//         MovieDataGraph graph = new MovieDataGraph("C:\\Users\\Nick\\Downloads\\fairness\\newType.ttl",
+//                 "C:\\Users\\Nick\\Downloads\\Film_dataset\\Film_dataset\\processed_dataset\\mix.dbpedia.graph",
+//                 "C:\\Users\\Nick\\Downloads\\Film_dataset\\Film_dataset\\processed_dataset\\film.imdb.json");
 
-        VF2Checker checker = new VF2Checker(graph);
 
-        ArrayList<String> group = new ArrayList<>();
-        group.add("Comedy");
-        group.add("Action");
-//        group.add("Romance");
-        ArrayList<Rangepair> cc = new ArrayList<>();
-        cc.add(new Rangepair(20, 30));
-        cc.add(new Rangepair(20, 30));
-//        cc.add(new Rangepair(20, 40));
+//         VF2Checker checker = new VF2Checker(graph);
 
-        long startTime = System.nanoTime();
-//        checker.runMaxSumGenStreaming(group, cc, 1, 50);
-        checker.runMaxSumGenStreaming(group, cc, 1, 50);
+//         ArrayList<String> group = new ArrayList<>();
+//         group.add("Comedy");
+//         group.add("Action");
+// //        group.add("Romance");
+//         ArrayList<Rangepair> cc = new ArrayList<>();
+//         cc.add(new Rangepair(20, 30));
+//         cc.add(new Rangepair(20, 30));
+// //        cc.add(new Rangepair(20, 40));
 
-        long endTime = System.nanoTime();
-        long duration = (endTime - startTime);
-        System.out.println(duration + "total");
+//         long startTime = System.nanoTime();
+//         checker.runFGSStream(group, cc, 1, 50,10);
+//         checker.runFGS(group, cc, 1, 50, 10);
+
+//         long endTime = System.nanoTime();
+//         long duration = (endTime - startTime);
+//         System.out.println(duration + "total");
 
 
     }
@@ -2150,18 +2142,3 @@ public class VF2Checker {
 
 }
 
-class TComparator implements Comparator<Triple> {
-
-    // override the compare() method
-    public int compare(Triple s1, Triple s2) {
-        int t1 = Integer.parseInt(s1.s);
-        int t2 = Integer.parseInt(s2.s);
-        if (t1 == t2)
-            return 0;
-        else if (t1 > t2)
-            return 1;
-        else
-            return -1;
-    }
-
-}

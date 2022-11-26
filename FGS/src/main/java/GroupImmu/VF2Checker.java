@@ -1,7 +1,6 @@
 package GroupImmu;
 
 import Infra.*;
-import MovieLensGraph.MovieDataGraph;
 import MovieLensGraph.Rangepair;
 import MovieLensGraph.Triple;
 import org.jgrapht.Graph;
@@ -754,7 +753,7 @@ public class VF2Checker {
 
     }
 
-    public void runMaxSumGen()
+    public void runFGS()
             throws IOException, ClassNotFoundException {
 
         Graph<DataNode, RelationshipEdge> oldGraph = new DefaultDirectedGraph<>(RelationshipEdge.class);
@@ -1943,26 +1942,10 @@ public class VF2Checker {
 
         CovidDataGraph dataGraph = new CovidDataGraph("patients_data.csv");
         VF2Checker checker = new VF2Checker(dataGraph);
-        checker.runMaxSumGen();
+        checker.runFGS();
 
 
 
-//        ArrayList<String> group = new ArrayList<>();
-//        group.add("Comedy");
-//        group.add("Action");
-////        group.add("Romance");
-//        ArrayList<Rangepair> cc = new ArrayList<>();
-//        cc.add(new Rangepair(20, 30));
-//        cc.add(new Rangepair(20, 30));
-////        cc.add(new Rangepair(20, 40));
-//
-//        long startTime = System.nanoTime();
-////        checker.runMaxSumGenStreaming(group, cc, 1, 50);
-//        checker.runMaxSumGenStreaming(group, cc, 1, 50);
-//
-//        long endTime = System.nanoTime();
-//        long duration = (endTime - startTime);
-//        System.out.println(duration + "total");
 
 
     }

@@ -38,6 +38,6 @@ Example:
         cc.add(new Rangepair(20, 30));
 
 3. Call proecedure (para 1: group (group), para 2: constraints(cc),
-para 3: hop(2), para 4: number of node in Vp(50), para 5: size of result pattern set (k= 10))
+para 3: hop(2), para 4: number of node in Vp(m=50), para 5: size of result pattern set (n=10))
 
        checker.runFGS(group, cc, 2, 50,10);

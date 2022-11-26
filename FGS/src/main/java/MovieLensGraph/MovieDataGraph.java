@@ -31,7 +31,6 @@ public class MovieDataGraph extends DataGraphBase {
         addAllVertex()  ;
         loadGraph(dataGraphFilePath);
         enhencedIMDB(enrichFile);
-
     }
 
 
@@ -168,6 +167,13 @@ public class MovieDataGraph extends DataGraphBase {
                     curr.attributes.get(predicate.substring(1, predicate.length() - 1)).add(objectString);
                 }
 
+
+//                System.out.println("Add");
+                //System.out.println(predicate.substring(1,predicate.length()-1));
+                //System.out.println(nodeMap.get(subjectString.hashCode()).getType());
+                //System.out.println(nodeMap.get(subjectString.hashCode()).getNodeName());
+                //System.out.println("Add");
+
             }
 
 
@@ -194,11 +200,17 @@ public class MovieDataGraph extends DataGraphBase {
                 } else {
                     curr.attributes.get(predicate.substring(1, predicate.length() - 1)).add(attribute);
                 }
-
+//                System.out.println("Add attr!");
             }
 
         }
-
+//        System.out.println(i + " haha");
+//        Map<String, Integer> m1 = sortByValue(count1);
+//        printMap(m1);
+//        System.out.println("-----------------------------");
+//        Map<String, Integer> m2 = sortByValue(count2);
+//        printMap(m2);
+//        System.out.println(count1.size() + " " + count2.size());
 
         br.close();
 
@@ -219,12 +231,12 @@ public class MovieDataGraph extends DataGraphBase {
             if (predicate.equals("<abstract>")) {
                 continue;
             }
-
+            //System.out.println(object);
 
             if (object.charAt(0) == '<') {
 
                 if (!nodeMap.containsKey(subjectString.hashCode())) {
-
+                    //System.out.println(subjectString + "1------");
 
                     count++;
 
@@ -232,7 +244,7 @@ public class MovieDataGraph extends DataGraphBase {
                 }
 
                 if (!nodeMap.containsKey(objectString.hashCode())) {
-
+                    //System.out.println(objectString + "----!");
                     count4++;
 
                     continue;
@@ -524,6 +536,7 @@ public class MovieDataGraph extends DataGraphBase {
         mergeNum = s1.size() + s2.size() - commonNum;
 
         double jaccard = commonNum / mergeNum;
+//        System.out.println(jaccard);
         return jaccard;
     }
 
@@ -539,7 +552,11 @@ public class MovieDataGraph extends DataGraphBase {
 
         MovieDataGraph dataGraph = new MovieDataGraph("newType.ttl",
                 "C:\\Users\\Nick\\Downloads\\Film_dataset\\Film_dataset\\processed_dataset\\mix.dbpedia.graph",
-                "C:\\Users\\Nick\\Downloads\\Film_dataset\\Film_dataset\\processed_dataset\\imdb.json");
+                "C:\\Users\\Nick\\Downloads\\Film_dataset\\Film_dataset\\processed_dataset\\film.imdb.json");
+        System.out.println(dataGraph.nodeLabelMap.size());
+        System.out.println(dataGraph.edgeLabelMap.size());
+
+
 
     }
 
