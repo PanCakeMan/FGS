@@ -1,10 +1,7 @@
 package MovieLensGraph;
-
 import java.io.*;
 import java.util.*;
-
 import Infra.*;
-
 import Linkedin.LinkedinGraph;
 import org.apache.jena.atlas.data.AbstractDataBag;
 import org.apache.jena.base.Sys;

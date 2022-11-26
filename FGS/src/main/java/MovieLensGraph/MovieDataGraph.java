@@ -23,28 +23,14 @@ public class MovieDataGraph extends DataGraphBase {
     public HashMap<Integer, String> nodeLabelMap;
     public HashMap<Integer, String> edgeLabelMap;
 
-    public MovieDataGraph(String nodeTypesFilePath, String dataGraphFilePath) throws IOException {
-
+    public MovieDataGraph(String nodeTypesFilePath, String dataGraphFilePath, String enrichFile) throws IOException {
         super();
         nodeLabelMap = new HashMap<>();
         edgeLabelMap = new HashMap<>();
         loadNodeMap(nodeTypesFilePath);
         addAllVertex()  ;
         loadGraph(dataGraphFilePath);
-        enhencedIMDB("C:\\Users\\Nick\\Downloads\\Film_dataset\\Film_dataset\\processed_dataset\\film.imdb.json");
-
-
-        HashSet<String> set = new HashSet<>();
-        for (DataNode n : dataGraph.vertexSet()) {
-            if (n.types.contains("Film") && n.attributes.containsKey("country")) {
-                //System.out.println(n.getNodeName());
-
-                for (String key : n.attributes.keySet()) {
-                    //System.out.println(key + " " + n.attributes.get(key));
-                }
-            }
-        }
-
+        enhencedIMDB(enrichFile);
 
     }
 
@@ -182,13 +168,6 @@ public class MovieDataGraph extends DataGraphBase {
                     curr.attributes.get(predicate.substring(1, predicate.length() - 1)).add(objectString);
                 }
 
-
-//                System.out.println("Add");
-                //System.out.println(predicate.substring(1,predicate.length()-1));
-                //System.out.println(nodeMap.get(subjectString.hashCode()).getType());
-                //System.out.println(nodeMap.get(subjectString.hashCode()).getNodeName());
-                //System.out.println("Add");
-
             }
 
 
@@ -215,17 +194,11 @@ public class MovieDataGraph extends DataGraphBase {
                 } else {
                     curr.attributes.get(predicate.substring(1, predicate.length() - 1)).add(attribute);
                 }
-//                System.out.println("Add attr!");
+
             }
 
         }
-//        System.out.println(i + " haha");
-//        Map<String, Integer> m1 = sortByValue(count1);
-//        printMap(m1);
-//        System.out.println("-----------------------------");
-//        Map<String, Integer> m2 = sortByValue(count2);
-//        printMap(m2);
-//        System.out.println(count1.size() + " " + count2.size());
+
 
         br.close();
 
@@ -246,12 +219,12 @@ public class MovieDataGraph extends DataGraphBase {
             if (predicate.equals("<abstract>")) {
                 continue;
             }
-            //System.out.println(object);
+
 
             if (object.charAt(0) == '<') {
 
                 if (!nodeMap.containsKey(subjectString.hashCode())) {
-                    //System.out.println(subjectString + "1------");
+
 
                     count++;
 
@@ -259,7 +232,7 @@ public class MovieDataGraph extends DataGraphBase {
                 }
 
                 if (!nodeMap.containsKey(objectString.hashCode())) {
-                    //System.out.println(objectString + "----!");
+
                     count4++;
 
                     continue;
@@ -551,7 +524,6 @@ public class MovieDataGraph extends DataGraphBase {
         mergeNum = s1.size() + s2.size() - commonNum;
 
         double jaccard = commonNum / mergeNum;
-//        System.out.println(jaccard);
         return jaccard;
     }
 
@@ -566,12 +538,8 @@ public class MovieDataGraph extends DataGraphBase {
     public static void main(String args[]) throws IOException {
 
         MovieDataGraph dataGraph = new MovieDataGraph("newType.ttl",
-                "C:\\Users\\Nick\\Downloads\\Film_dataset\\Film_dataset\\processed_dataset\\mix.dbpedia.graph");
-        System.out.println(dataGraph.nodeLabelMap.size());
-        System.out.println(dataGraph.edgeLabelMap.size());
-
-//        dataGraph.SubsetSelection2(3);
-        //dataGraph.cleanNodeMap("/Users/hanchao/Downloads/instance_types_en.ttl","/Users/hanchao/Downloads/Film_dataset/processed_dataset/mix.dbpedia.graph");
+                "C:\\Users\\Nick\\Downloads\\Film_dataset\\Film_dataset\\processed_dataset\\mix.dbpedia.graph",
+                "C:\\Users\\Nick\\Downloads\\Film_dataset\\Film_dataset\\processed_dataset\\imdb.json");
 
     }
 
