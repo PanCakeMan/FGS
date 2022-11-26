@@ -16,11 +16,9 @@
       <file leaf-file-name="VF2Checker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FGS/src/main/java/MovieLensGraph/VF2Checker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="2146" column="0" lean-forward="false" selection-start-line="2146" selection-start-column="0" selection-end-line="2146" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="373">
+              <caret line="2137" column="0" lean-forward="false" selection-start-line="2137" selection-start-column="0" selection-end-line="2137" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -29,8 +27,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="461">
-                <caret line="40" column="90" lean-forward="true" selection-start-line="40" selection-start-column="90" selection-end-line="40" selection-end-column="90" />
+              <first_editor relative-caret-position="120">
+                <caret line="8" column="67" lean-forward="false" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -41,10 +39,11 @@
       <file leaf-file-name="MovieDataGraph.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FGS/src/main/java/MovieLensGraph/MovieDataGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="525" column="46" lean-forward="false" selection-start-line="525" selection-start-column="46" selection-end-line="525" selection-end-column="46" />
+            <state relative-caret-position="475">
+              <caret line="537" column="46" lean-forward="false" selection-start-line="537" selection-start-column="46" selection-end-line="537" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1669450874000" expanded="true" signature="18666:18673" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -345,10 +344,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FGS/src/main/java/MovieLensGraph/MovieDataGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="525" column="46" lean-forward="false" selection-start-line="525" selection-start-column="46" selection-end-line="525" selection-end-column="46" />
+        <state relative-caret-position="475">
+          <caret line="537" column="46" lean-forward="false" selection-start-line="537" selection-start-column="46" selection-end-line="537" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1669450874000" expanded="true" signature="18666:18673" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -371,19 +371,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FGS/src/main/java/MovieLensGraph/VF2Checker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="2146" column="0" lean-forward="false" selection-start-line="2146" selection-start-column="0" selection-end-line="2146" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="373">
+          <caret line="2137" column="0" lean-forward="false" selection-start-line="2137" selection-start-column="0" selection-end-line="2137" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="461">
-            <caret line="40" column="90" lean-forward="true" selection-start-line="40" selection-start-column="90" selection-end-line="40" selection-end-column="90" />
+          <first_editor relative-caret-position="120">
+            <caret line="8" column="67" lean-forward="false" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
             <folding />
           </first_editor>
           <second_editor />

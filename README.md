@@ -5,6 +5,8 @@ Covid-19: https://github.com/imdevskp/covid-19-india-data/
 
 Movie: https://www2.helsinki.fi/en/researchgroups/unified-database-management-systems-udbm  
 DBpedia:https://www.dbpedia.org/resources/knowledge-graphs/
+* To identify node types, we integrate DBpedia Ontology for building movie data graph.
+Please see: http://wikidata.dbpedia.org/services-resources/ontology
 
 Linkedin: Cosnet: Connecting heterogeneous social networks with local and global consist  
 
